@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>나의 탄생 상징</title>
+  <meta name="description" content="이름과 생일을 넣으면 별자리, 탄생석, 탄생화, 탄생색, 오행띠, 탄생 타로, 켈트 나무, 토템 동물, 수호천사를 한 장에 모아 보여줍니다.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>나의 탄생 상징</h1>
+    <p class="tagline">이름과 생일만 넣으면 열 가지 탄생 상징을 한 장에 모아 드립니다.</p>
+  </header>
+
+  <main>
+    <form id="form" class="panel" autocomplete="off">
+      <div class="field">
+        <label for="name">이름</label>
+        <input id="name" type="text" maxlength="20" placeholder="예: 김하늘" required>
+      </div>
+      <div class="field">
+        <span class="label">생일 (양력)</span>
+        <div class="date-row">
+          <select id="year" aria-label="년"></select>
+          <select id="month" aria-label="월"></select>
+          <select id="day" aria-label="일"></select>
+        </div>
+      </div>
+      <button type="submit" class="primary">탄생 상징 보기</button>
+      <p class="privacy">입력한 이름과 생일은 이 브라우저 안에서만 계산되며, 어디에도 저장하거나 전송하지 않습니다.</p>
+    </form>
+
+    <section id="result" class="result" hidden aria-live="polite"></section>
+
+    <div id="actions" class="actions" hidden>
+      <button id="save" type="button">이미지로 저장</button>
+      <button id="reset" type="button" class="ghost">다시 입력</button>
+    </div>
+  </main>
+
+  <footer class="sources">
+    <h2>자료 출처</h2>
+    <ul>
+      <li><b>별자리</b> — <a href="https://ko.wikipedia.org/wiki/%ED%99%A9%EB%8F%84_12%EA%B6%81" target="_blank" rel="noopener">한국어 위키백과 황도 12궁</a> 날짜 기준</li>
+      <li><b>탄생석</b> — <a href="https://www.americangemsociety.org/birthstones/" target="_blank" rel="noopener">American Gem Society</a> 현행 목록 (1912년 미국 보석상협회 채택, 이후 추가분 포함)</li>
+      <li><b>월별 탄생화</b> — <a href="https://ko.wikipedia.org/wiki/%ED%83%84%EC%83%9D%ED%99%94" target="_blank" rel="noopener">한국어 위키백과 탄생화</a> 미국식 표</li>
+      <li><b>366일 탄생화</b> — 한국에서 널리 쓰이는 일별 탄생화·꽃말 목록 (꽃 목록은 <a href="https://namu.wiki/w/%ED%83%84%EC%83%9D%ED%99%94" target="_blank" rel="noopener">나무위키 탄생화</a> 문서의 일별 표와 같음)</li>
+      <li><b>탄생색</b> — 野村順一 『366日誕生色事典』(1997) 계열 일본판 (<a href="https://ndlsearch.ndl.go.jp/books/R100000002-I000008174349" target="_blank" rel="noopener">국립국회도서관 서지</a>, 색표 조회 <a href="https://birthday-color.com/en" target="_blank" rel="noopener">birthday-color.com</a>)</li>
+      <li><b>오행띠</b> — <a href="https://ko.wikipedia.org/wiki/%EC%B2%9C%EA%B0%84" target="_blank" rel="noopener">천간</a> · <a href="https://ko.wikipedia.org/wiki/%EC%8B%AD%EC%9D%B4%EC%A7%80" target="_blank" rel="noopener">십이지</a> (한국어 위키백과). 양력 연도 기준으로 계산</li>
+      <li><b>탄생 타로</b> — <a href="https://tarotschool.com/BirthCards2.html" target="_blank" rel="noopener">The Tarot School, Determining Your Birth Cards</a> 계산법</li>
+      <li><b>켈트 나무</b> — Robert Graves 『The White Goddess』(1948)의 13개월 나무 달력 (<a href="https://en.wikipedia.org/wiki/The_White_Goddess" target="_blank" rel="noopener">위키백과</a>, 날짜표 <a href="http://www.maryjones.us/jce/celtictreecalendar.html" target="_blank" rel="noopener">Celtic Tree Calendar</a>)</li>
+      <li><b>토템 동물</b> — Sun Bear &amp; Wabun Wind 『The Medicine Wheel: Earth Astrology』(1980)에서 파생된 대중판 12동물 (<a href="https://books.google.com/books/about/The_Medicine_Wheel.html?id=HqxvAOkY7oIC" target="_blank" rel="noopener">Google Books</a>, 날짜표 <a href="https://arzodiac.com/12-native-american-zodiac-signs/" target="_blank" rel="noopener">Arzodiac</a>)</li>
+      <li><b>수호천사</b> — 카발라 72천사 (<a href="https://en.wikipedia.org/wiki/Shem_HaMephorash" target="_blank" rel="noopener">위키백과 Shem HaMephorash</a>), 날짜표 <a href="https://www.mystic-manga.com/en/guardian-angels" target="_blank" rel="noopener">Mystic Manga</a>, 황도 구간 <a href="https://namu.wiki/w/%EC%86%80%ED%95%A8%ED%8F%AC%EB%9D%BC%EC%97%90" target="_blank" rel="noopener">나무위키 솀함포라에</a></li>
+    </ul>
+    <p class="fine">탄생 타로, 켈트 나무, 토템 동물, 수호천사 날짜표는 근현대에 만들어진 체계이고, 탄생화와 탄생색 일별 목록은 자료마다 조금씩 다릅니다. 모두 재미로 보는 상징이며, 경계 날짜에 태어났다면 이웃한 항목도 함께 참고하세요.</p>
+  </footer>
+
+  <script src="data-static.js"></script>
+  <script src="data-daily.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
